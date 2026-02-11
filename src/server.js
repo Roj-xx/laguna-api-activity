@@ -2,7 +2,7 @@
 require('dotenv').config();
 
 const express = require('express');
-const connectDB = require('./src/config/db');
+const connectDB = require('./config/db');
 const app = express();
 connectDB();
 
@@ -16,12 +16,15 @@ const PORT = process.env.PORT || 3000;
 const BASE_URI = process.env.BASE_URI || '/api/v1';
 
 // Import Routes (we will create this later)
-const apiRoutes = require('./src/routes/apiRoutes');
+const apiRoutes = require('./routes/apiRoutes');
 app.use(process.env.BASE_URI, apiRoutes);
+const chefRoutes = require('./routes/chefRoutes');
+app.use(process.env.BASE_URI, chefRoutes);
 
 // Start Server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
     console.log(`Base URI: http://localhost:${PORT}${BASE_URI}`);
-    console.log(`API ready at: http://localhost:${PORT}${BASE_URI}/dishes`);
+    console.log(`Dishes API ready at: http://localhost:${PORT}${BASE_URI}/dishes`);
+    console.log(`Chef API ready at: http://localhost:${PORT}${BASE_URI}/chefs`);
 });

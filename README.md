@@ -41,3 +41,15 @@ Answer:
 
 <img width="1365" height="717" alt="Screenshot 2026-01-28 143523" src="https://github.com/user-attachments/assets/a97c3986-8969-4d6e-8075-177c9f3eb4b6" />
 
+
+
+**Why did I choose to Embed the Review?**
+
+Answer:
+I chose to embed the review because it is short and belongs only to that dish. Following the same logic as an equipment being put only in a backpack.
+
+
+**Why did I choose to Reference the Chef?"**
+
+Answer:
+I chose to reference the chef because a chef can be part of multiple dishes. Referencing the chef's ID is the way when you want a dish to be made. Following the same logic as when you have someone's number, you can call them without them being with you at all times.
