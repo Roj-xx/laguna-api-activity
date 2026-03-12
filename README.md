@@ -53,3 +53,21 @@ I chose to embed the review because it is short and belongs only to that dish. F
 
 Answer:
 I chose to reference the chef because a chef can be part of multiple dishes. Referencing the chef's ID is the way when you want a dish to be made. Following the same logic as when you have someone's number, you can call them without them being with you at all times.
+
+
+## Handson Activity 4: Securing the API
+
+### 1. Authentication and Authorization
+**What is the difference between Authentication and Authorization in our code?**
+
+Authentication verifies a user's identity during login using their credentials, while authorization determines what actions they are allowed to perform in protected routes based on their role.
+
+### 2. Security (bcrypt):
+**Why did we use bcryptjs instead of saving passwords as plaintext in MongoDB?**
+
+We used bcryptjs to hash passwords before storing them so that they remain secure and unreadable even if the database is compromised.
+
+### 3. JWT Structure:
+**What does the protect Middleware do when it receives a JWT from the client?**
+
+The protect middleware checks and verifies the JWT from the request header and only allows access to protected routes if the token is valid.

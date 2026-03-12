@@ -20,6 +20,8 @@ const apiRoutes = require('./routes/apiRoutes');
 app.use(process.env.BASE_URI, apiRoutes);
 const chefRoutes = require('./routes/chefRoutes');
 app.use(process.env.BASE_URI, chefRoutes);
+const authRoutes = require('./routes/authRoutes');
+app.use(process.env.BASE_URI, authRoutes);
 
 // Start Server
 app.listen(PORT, () => {

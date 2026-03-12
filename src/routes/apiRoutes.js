@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+// Import the controller
 const {
     getAllDishes,
     createDish,
@@ -9,19 +10,25 @@ const {
     deleteDish,
 } = require('../controllers/dishController');
 
-// 1. If user goes to GET / (Show Menu) -> ask Chef to getAllDishes
+const {protect, authorize} = require('../middleware/authMiddleware');
+
+//ANYONE CAN VIEW DISHES
+
 router.get('/dishes', getAllDishes);
 
-// 2. If user sends POST / (New Order) -> ask Chef to createDish
-router.post('/dishes', createDish);
+//ONLY ADMINS AND MANAGERS CAN CREATE DISHES
 
-// 3. If user goes to GET /:id (Ask for specific meal) -> ask Chef to getDishById
+router.post('/dishes', protect, authorize('admin', 'manager'), createDish);
+
+//ANYONE CAN VIEW DISHES BY ID
 router.get('/dishes/:id', getDishById);
 
-// 4. If user sends PUT /:id (Change Meal) -> ask Chef to updateDish
-router.put('/dishes/:id', updateDish);
+// If user sends PUT /dishes/:id → update dish
+router.put('/dishes/:id', protect, authorize('admin', 'manager'), updateDish);
 
-// 5. If user sends DELETE /:id (Cancel Meal) -> ask Chef to deleteDish
-router.delete('/dishes/:id', deleteDish);
+// If user sends DELETE /dishes/:id → delete dish
+router.delete('/dishes/:id', protect, authorize('admin', 'manager'), deleteDish);
 
+
+// Export router
 module.exports = router;
